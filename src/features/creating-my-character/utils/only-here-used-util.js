@@ -1,1 +1,2 @@
 // for example "formatDateInAWayuThatOnlyCreatingCharacterNeeds"
+export {};
