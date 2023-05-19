@@ -1,0 +1,101 @@
+
+@use "../../../src/styles/sass/base/typography";
+@use "../../../src/styles/sass/abstracts/colors";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+}
+
+@mixin fontStylingGlobal {
+  font-family: typography.$font-family-primary;
+  font-size: typography.$font-size-sm;
+  font-weight: typography.$font-weight-normal;
+}
+body,
+button {
+  @include fontStylingGlobal();
+  font-size: typography.$font-size-md;
+  line-height: typography.$line-height-sm;
+  text-align: center;
+  color: colors.$quaternary-light;
+  overflow: hidden;
+
+  ::placeholder {
+    @include fontStylingGlobal();
+  }
+  ::-webkit-input-placeholder {
+    @include fontStylingGlobal();
+  }
+  :-moz-placeholder {
+    @include fontStylingGlobal();
+  }
+  ::-moz-placeholder {
+    @include fontStylingGlobal();
+  }
+  :-ms-input-placeholder {
+    @include fontStylingGlobal();
+  }
+}
+
+input,
+select {
+  @include fontStylingGlobal();
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
