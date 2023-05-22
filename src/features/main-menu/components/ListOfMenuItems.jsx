@@ -10,7 +10,7 @@ import Image from "next/image";
 import MenuItem from "./MenuItem";
 
 const ListOfMenuItems = () => {
-  let isOpen = false; //hook1 - get it from redux, right?
+  let isOpen = true; //hook1 - get it from redux, right?
   // /\ false for now, because styles file dont exist, so the button spans through the whole screen, blocking any other clicks
 
   return (

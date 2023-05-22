@@ -9,7 +9,7 @@ const ToggleMenuButton = () => {
   //       _._. Button - shows / hides the menu
   //
 
-  let isOpen = false; //hook1 - get it from redux, right?
+  let isOpen = true; //hook1 - get it from redux, right?
 
   return isOpen && <button className={styles["btn-menu"]}> open </button>;
 };
