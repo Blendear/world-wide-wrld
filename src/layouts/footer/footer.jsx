@@ -1,44 +1,77 @@
-// //
-// //  Footer = Dopisek na dole mojej strony (np. kontakt, copyright etc.)
-////
-////
-////~~ A.  Historyjka - co rozwiązuję tutaj? - Word'owski rozdział name wklejony
-////
-////       A.1. parent rozdział nr 1
-// //
-// //           A.1.1. child rozdział nr 1
-// //
-////~~ B.  Historyjka druga ...
-////
-
-// 1. Importujesz componenty         -    Z którego zbudujesz kod tej stornki. NIE piszesz tu całego oryginalnego kodu
-// ||
-// 1.B. Piszesz już kod oryginalny   -    Bo gdzieś musisz w końcu zacząć go pisac. Nie można dzielić na componenty w nieskończoność
-// 2. Containeruję                   -    Tworzę 1 <div> główny i 1 dla każdego fragmentu danej strony
-// 3. Style'uję containery           -    Po kolei copy pastujac classy z bliźniaczo nazwanego pliku CSS'owskiego
+//
+//~~ _.  (Footer) - for showing necessary, handy informations for Explorers and GM. Content depends on different conditions, like who's logged in and "what has this player discovered"
+//
+//       _._. What can i do (Button) - opens modal "What can i do? Possible actions in your turn and outside of it"
+//
+//       _._. Initiative (Scrollable gallery) - shows the queque of initiative for meet's, which were given there by the GM.
+//
+//       _._. Active Soulers (List of Buttons)- [GM ONLY VISIBILITY] for controlling active mp3 files (both playing and paused - stoping files arent showing here)
+//
+//       _._. Active timers (List of Buttons) - [GM ONLY VISIBILITY] for controlling
+//
+//       _._. Chat between GM and Explrorers (Button) - opens modal "Chat between GM and Explrorers"
+//
+//       _._. Show/hide full footer (Button) - shows or hides the content from previous points
+//
 
 import styles from "src/styles/sass/styles-all.module.scss";
+//hook2 - semantically not correct yet
 
-// import {aComponent, bComponent} from "...COMPONENT folder..."
-
+// hook1 - warunki renderowania zasuguja na dedykowany podpunkt w spisie tresci, czy to unwierslana funkcja zewnetrzna?
 const Footer = () => {
+  let warunekRoliZalogowanego = false;
+  let warunekCzyInicjatywaAktywna = false;
   return (
-    <div
-      className={`${styles["layout__footer__caly-container"]} ${styles["...wyglad..."]}`}
-    >
-      <div
-        className={`${styles["layout__footer__caly-container__fragment-1-np-kontaktowe-info"]} ${styles["...wyglad..."]}`}
-      >
-        {/* <aComponent/> */}
-        FOOTER
-      </div>
-
-      <div
-        className={`${styles["layout__footer__caly-container__fragment-2-np-ikonki partnerów"]} ${styles["...wyglad..."]}`}
-      >
-        {/* <bComponent/> */}
-      </div>
-    </div>
+    //
+    //~~ _.  (Footer) - for showing necessary, handy informations for Explorers and GM. Content depends on different conditions, like who's logged in and "what has this player discovered"
+    //
+    <nav className={styles["footer-container"]}>
+      {/* 
+      //       _._. What can i do (Button) - opens modal "What can i do? Possible actions in your turn and outside of it"
+      */}
+      {warunekRoliZalogowanego && (
+        <button className={styles["what-can-i-do"]}>
+          what can i do as Explorer
+        </button>
+      )}
+      {/* 
+      //       _._. Initiative (Scrollable gallery) - shows the queque of initiative for meet's, which were given there by the GM.
+      */}
+      {warunekCzyInicjatywaAktywna && (
+        <ul className={styles["list-of-initiative"]}>
+          <li>meet1</li>
+          <li>meet2</li>
+        </ul>
+      )}
+      {/* 
+      //       _._. Active Soulers (List of Buttons)- [GM ONLY VISIBILITY] for controlling active mp3 files (both playing and paused - stoping files arent showing here)
+      */}
+      {warunekRoliZalogowanego && (
+        <ul className={styles["list-of-active-soulers"]}>
+          <li>souler1</li>
+          <li>souler2</li>
+        </ul>
+      )}
+      {/* 
+      //       _._. Active timers (List of Buttons) - [GM ONLY VISIBILITY] for controlling
+      */}
+      {warunekRoliZalogowanego && (
+        <ul className={styles["list-of-active-timers"]}>
+          <li>timer1</li>
+          <li>timer2</li>
+        </ul>
+      )}
+      {/* 
+      //       _._. Chat between GM and Explrorers (Button) - opens modal "Chat between GM and Explrorers"
+      */}
+      {warunekRoliZalogowanego && <button className={styles["chat"]}></button>}
+      {/* 
+      //       _._. Show/hide full footer (Button) - shows or hides the content from previous points
+      */}
+      <button className={styles["toggle-visibility"]}>
+        /\ show/hide footer
+      </button>
+    </nav>
   );
 };
 export default Footer;

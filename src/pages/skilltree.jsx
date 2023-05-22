@@ -11,13 +11,7 @@
 
 import styles from "src/styles/sass/styles-all.module.scss";
 
-import Image from "next/image";
-
-const AComponent = () => {
-  return (
-    <div className={styles["layout-strona-glowna__cala-strona"]}>
-      _app - NIE powinienes widziec tego
-    </div>
-  );
+const SkilltreePage = () => {
+  return <h1 className={styles.eksperymentalny}> Skilltree</h1>;
 };
-export default AComponent;
+export default SkilltreePage;

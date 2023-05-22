@@ -11,13 +11,7 @@
 
 import styles from "src/styles/sass/styles-all.module.scss";
 
-import Image from "next/image";
-
-const AComponent = () => {
-  return (
-    <div className={styles["layout-strona-glowna__cala-strona"]}>
-      _app - NIE powinienes widziec tego
-    </div>
-  );
+const StartingPage = () => {
+  return <h1 className={styles.eksperymentalny}> Ekran postaci gracza X</h1>;
 };
-export default AComponent;
+export default StartingPage;
