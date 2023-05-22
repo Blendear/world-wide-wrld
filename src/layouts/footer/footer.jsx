@@ -14,12 +14,15 @@
 //       _._. Show/hide full footer (Button) - shows or hides the content from previous points
 //
 
+import { useState } from "react";
 import styles from "src/styles/sass/styles-all.module.scss";
+
 //hook2 - semantically not correct yet
 
 // hook1 - warunki renderowania zasuguja na dedykowany podpunkt w spisie tresci, czy to unwierslana funkcja zewnetrzna?
 const Footer = () => {
-  let warunekRoliZalogowanego = false;
+  const [warunekRoliZalogowanego, setWarunekRoliZalogowanego] = useState(false);
+
   let warunekCzyInicjatywaAktywna = false;
   return (
     //
@@ -68,7 +71,16 @@ const Footer = () => {
       {/* 
       //       _._. Show/hide full footer (Button) - shows or hides the content from previous points
       */}
-      <button className={styles["toggle-visibility"]}>
+      {/* hook2 - idealna funkcja togglujace state - MUSI RETURNOWAC. zapominam o tym  */}
+      <button
+        className={styles["toggle-visibility"]}
+        onClick={() => {
+          setWarunekRoliZalogowanego((prev) => {
+            return !prev;
+          }),
+            console.log(warunekRoliZalogowanego);
+        }}
+      >
         /\ show/hide footer
       </button>
     </nav>
