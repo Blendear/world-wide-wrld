@@ -15,4 +15,7 @@
 // };
 
 // export default storage;
+
+// hook2 - /\ should i use this function? seems usefull
+
 export {};
