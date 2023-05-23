@@ -27,6 +27,7 @@ const LoginPage = () => {
       */}
       <div>Sign in page</div>
       <button className={styles[""]}>Sign in with Google</button>
+      <button className={styles[""]}> LETS GO!</button>
       {/*
       //       _._. Toggle "I'm logging in / signing up" (Butons)
       */}
